@@ -17,3 +17,25 @@ function playerSelection() {
 
 console.log(getComputerChoice());
 console.log(playerSelection());
+
+const computerSelection = getComputerChoice();
+
+function playRound(playerSelection, computerSelection) {
+    if (computerSelection == playerSelection) {
+        console.log("You have recieved a tie for your next meeting.");
+    } else if 
+    (computerSelection === "rock" && playerSelection === "scissors" ||
+     computerSelection === "paper" && playerSelection === "rock" ||
+     computerSelection === "scissors" && playerSelection === "paper") {
+        console.log("You've lost.");
+    } else if
+    (computerSelection === "rock" && playerSelection === "paper" ||
+    computerSelection === "paper" && playerSelection === "scissors" ||
+    computerSelection === "scissors" && playerSelection === "rock") {
+        console.log("You have won a point! Prepare for many more victories!");
+    } else {
+        console.log("You have recieved a tie for your next meeting.")
+    }
+};
+
+console.log(playRound(selectedChoice, getComputerChoice));
