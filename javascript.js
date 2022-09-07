@@ -15,9 +15,6 @@ function playerSelection() {
     return(selectedChoice);
 };
 
-console.log(getComputerChoice());
-console.log(playerSelection());
-
 const computerSelection = getComputerChoice();
 
 function playRound(playerSelection, computerSelection) {
@@ -38,4 +35,7 @@ function playRound(playerSelection, computerSelection) {
     }
 };
 
-console.log(playRound(selectedChoice, getComputerChoice));
+console.log(computerSelection);
+console.log(playerSelection());
+
+console.log(playRound(selectedChoice, computerSelection));
