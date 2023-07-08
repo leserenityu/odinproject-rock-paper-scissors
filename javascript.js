@@ -1,41 +1,40 @@
-let choice = [
+const choices = [
     "rock", 
     "paper", 
     "scissors"
 ];
 
 function getComputerChoice() {
-    choice = choice[Math.floor(Math.random() * choice.length)]; // random selection
-    return(choice);
+    return choices[Math.floor(Math.random() * choices.length)]; // random selection
 };
 
-let selectedChoice = prompt("Type in rock, paper, or scissors.");
-function playerSelection() {
-    selectedChoice = selectedChoice.toLowerCase();
-    return(selectedChoice);
+function getPlayerChoice() {
+    // let player_choice = prompt("Type in rock, paper, or scissors.").toLowerCase()
+    // return(`You chose ${player_choice}!`);
+    return prompt("Type in rock, paper, or scissors.").toLowerCase();
 };
-
-const computerSelection = getComputerChoice();
 
 function playRound(playerSelection, computerSelection) {
-    if (computerSelection == playerSelection) {
-        console.log("You have recieved a tie for your next meeting.");
+    if 
+    (computerSelection === choices[0] && playerSelection === choices[1] ||
+     computerSelection === choices[1] && playerSelection === choices[2] ||
+     computerSelection === choices[3] && playerSelection === choices[0]) {
+        return "You won!";
     } else if 
-    (computerSelection === "rock" && playerSelection === "scissors" ||
-     computerSelection === "paper" && playerSelection === "rock" ||
-     computerSelection === "scissors" && playerSelection === "paper") {
-        console.log("You've lost.");
-    } else if
-    (computerSelection === "rock" && playerSelection === "paper" ||
-    computerSelection === "paper" && playerSelection === "scissors" ||
-    computerSelection === "scissors" && playerSelection === "rock") {
-        console.log("You have won a point! Prepare for many more victories!");
+    (computerSelection === choices[0] && playerSelection === choices[2] ||
+     computerSelection === choices[1] && playerSelection === choices[0] ||
+     computerSelection === choices[2] && playerSelection === choices[1]) {
+        return "Oh no! You lost.";
+    } else if (playerSelection == computerSelection){
+        return "It's a tie!";
     } else {
-        console.log("You have recieved a tie for your next meeting.")
-    }
+        return "UNKNOWN ERROR"
+    };
 };
 
-console.log(computerSelection);
-console.log(playerSelection());
+let com = getComputerChoice()
+let player = getPlayerChoice()
 
-console.log(playRound(selectedChoice, computerSelection));
+console.log("You chose " + player);
+console.log("The computer chooses " + com);
+console.log(playRound(player, com));
